@@ -98,9 +98,9 @@ namespace UnityStandardAssets.Utility
             }
             if (m_MonoBehaviours.Length > 0)
             {
-                foreach (var monoBehaviour in m_MonoBehaviours)
+                foreach (var MonoBehaviour in m_MonoBehaviours)
                 {
-                    monoBehaviour.enabled = enabled;
+                    MonoBehaviour.enabled = enabled;
                 }
             }
         }

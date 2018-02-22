@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class spawn : NetworkBehaviour {
+public class spawn :NetworkBehaviour {
 
 	public Vector3 Spawn;
 	public GameObject gam;
@@ -12,7 +12,7 @@ public class spawn : NetworkBehaviour {
 	void Start () {
 		
 		if (isLocalPlayer) {
-			transform.position = Spawn;
+			//transform.position = Spawn;
 			return;
 		}
 		gam.SetActive (false);

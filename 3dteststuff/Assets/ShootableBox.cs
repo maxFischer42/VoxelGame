@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class ShootableBox : MonoBehaviour {
+public class ShootableBox : NetworkBehaviour {
 
 	//The box's current health point total
 	public int currentHealth = 3;

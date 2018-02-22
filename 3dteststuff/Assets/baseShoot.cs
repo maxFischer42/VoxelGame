@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class baseShoot : MonoBehaviour {
+public class baseShoot : NetworkBehaviour {
 
 	public GameObject bullet;
 	public Transform targetAim;

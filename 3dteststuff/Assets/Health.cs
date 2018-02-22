@@ -17,9 +17,14 @@ public class Health : NetworkBehaviour {
 
 	void Start ()
 	{
+		transform.position = new Vector3 (0, 8, 0);
+		RpcRespawn ();
 		if (isLocalPlayer)
 		{
 			spawnPoints = FindObjectsOfType<NetworkStartPosition>();
+		}
+		if (!isLocalPlayer) {
+			gameObject.SetActive (false);
 		}
 	}
 
