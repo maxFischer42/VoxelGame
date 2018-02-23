@@ -329,6 +329,8 @@ GameObject:
   - component: {fileID: 136756398972555122}
   - component: {fileID: 23987510839580748}
   - component: {fileID: 114854276090547522}
+  - component: {fileID: 114775466407920200}
+  - component: {fileID: 114895565442977180}
   m_Layer: 0
   m_Name: ExplosiveBarrel
   m_TagString: Untagged
@@ -704,6 +706,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924308429878392}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114775466407920200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924308429878392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 15
+    i1: 208
+    i2: 24
+    i3: 134
+    i4: 229
+    i5: 151
+    i6: 88
+    i7: 100
+    i8: 121
+    i9: 233
+    i10: 80
+    i11: 81
+    i12: 27
+    i13: 1
+    i14: 148
+    i15: 4
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114854276090547522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,6 +757,27 @@ MonoBehaviour:
   - {fileID: 1698671996146652}
   - {fileID: 1746434811588686}
   barrel: 1
+--- !u!114 &114895565442977180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924308429878392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!136 &136756398972555122
 CapsuleCollider:
   m_ObjectHideFlags: 1

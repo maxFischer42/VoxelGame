@@ -9,7 +9,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
-	public class FirstPersonController : NetworkBehaviour
+	public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -44,7 +44,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
         // Use this for initialization
-		public override void OnStartLocalPlayer()
+		public void Start()
 		{
 
 			
@@ -182,25 +182,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void UpdateCameraPosition(float speed)
         {
-            Vector3 newCameraPosition;
-            if (!m_UseHeadBob)
-            {
-                return;
-            }
-            if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
-            {
-                m_Camera.transform.localPosition =
-                    m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
-            }
-            else
-            {
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
-            }
-            m_Camera.transform.localPosition = newCameraPosition;
+			
+				Vector3 newCameraPosition;
+				if (!m_UseHeadBob) {
+					return;
+				}
+				if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded) {
+					m_Camera.transform.localPosition =
+                    m_HeadBob.DoHeadBob (m_CharacterController.velocity.magnitude +
+					(speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
+					newCameraPosition = m_Camera.transform.localPosition;
+					newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset ();
+				} else {
+					newCameraPosition = m_Camera.transform.localPosition;
+					newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset ();
+				}
+				m_Camera.transform.localPosition = newCameraPosition;
+
         }
 
 

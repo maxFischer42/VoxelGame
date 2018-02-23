@@ -2,16 +2,16 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class RayViewerComplete : MonoBehaviour {
+public class RayViewerComplete : NetworkBehaviour {
 
     public float weaponRange = 50f;                       // Distance in Unity units over which the Debug.DrawRay will be drawn
 
     private Camera fpsCam;                                // Holds a reference to the first person camera
 
 
-	void Start()
+	void OnStartLocalBehaviour(){
 
-	{
+	
         // Get and store a reference to our Camera by searching this GameObject and its parents
         fpsCam = GetComponentInParent<Camera>();
 	}
