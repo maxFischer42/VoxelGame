@@ -65,14 +65,16 @@ public class RayCastShootComplete :NetworkBehaviour {
 				laserLine.SetPosition (1, hit.point);
 
 				// Get a reference to a health script attached to the collider we hit
-				ShootableBox health = hit.collider.GetComponent<ShootableBox>();
-
+				ShootableBox healthh = hit.collider.GetComponent<ShootableBox>();
+				Health playerHealth = hit.collider.GetComponent<Health> ();
 				// If there was a health script attached
-				if (health != null)
-				{
-					// Call the damage function of that script, passing in our gunDamage variable
-					health.Damage (gunDamage);
-				}
+			if (healthh != null) {
+				// Call the damage function of that script, passing in our gunDamage variable
+				healthh.RpcDamage (gunDamage);
+			} else if(playerHealth != null)
+			{
+				playerHealth.TakeDamage (gunDamage);
+			}
 
 				// Check if the object we hit has a rigidbody attached
 				if (hit.rigidbody != null)

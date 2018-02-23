@@ -112,13 +112,13 @@ GameObject:
   - component: {fileID: 82325863728348844}
   - component: {fileID: 114091725038725040}
   - component: {fileID: 114895039755781106}
-  - component: {fileID: 114542043272088474}
   - component: {fileID: 136470989734333604}
   - component: {fileID: 143830075296699688}
   - component: {fileID: 114175356934161238}
   - component: {fileID: 114368036194311388}
   - component: {fileID: 114333273245229920}
   - component: {fileID: 114147042293567930}
+  - component: {fileID: 114467439999375528}
   m_Layer: 0
   m_Name: Character 2
   m_TagString: Untagged
@@ -1014,6 +1014,21 @@ MonoBehaviour:
   m_FootstepSounds: []
   m_JumpSound: {fileID: 0}
   m_LandSound: {fileID: 0}
+--- !u!114 &114467439999375528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500769252762944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d1930daf70911469c74ea0b3d88ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 1
+  particles: []
+  barrel: 0
+  player: 1
 --- !u!114 &114478307733486568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1057,20 +1072,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114542043272088474
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1500769252762944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d59272341512d4ba1d23d47c87b378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyOnDeath: 1
-  currentHealth: 100
-  healthBar: {fileID: 224246154969382916}
 --- !u!114 &114748249054665842
 MonoBehaviour:
   m_ObjectHideFlags: 1
