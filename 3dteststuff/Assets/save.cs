@@ -8,7 +8,7 @@ using System.IO;
 
 public class save : MonoBehaviour {
 
-	// Use this for initialization
+	/*// Use this for initialization
 	void Start () {
 		Load ();
 	}
@@ -18,14 +18,14 @@ public class save : MonoBehaviour {
 		if (Input.GetAxisRaw ("Jump") > 0) {
 			Save ();
 		}
-	}
+	}*/
 
-
+	/*
 	public void Save()
 	{
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/Data.dat");
-		Info inf = new Info ();
+		Infoo inf = new Infoo ();
 		inf.x = transform.position.x;
 		inf.y = transform.position.y;
 		inf.z = transform.position.z;
@@ -39,19 +39,17 @@ public class save : MonoBehaviour {
 		if (File.Exists (Application.persistentDataPath + "/Data.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/Data.dat", FileMode.Open);
-			Info info = (Info)bf.Deserialize (file);
+			Infoo info = (Infoo)bf.Deserialize (file);
 			file.Close ();
 			Debug.Log ("Loaded");
-			transform.position = new Vector3 (info.x, info.y, info.z);
 		}
 	}
 }
 
 [Serializable]
-public class Info
+public class Infoo
 {
-	public float x;
-	public float y;
-	public float z;
+	public string name;
 
+}*/
 }

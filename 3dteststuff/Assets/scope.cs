@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class scope : MonoBehaviour {
+using UnityEngine.Networking;
+public class scope : NetworkBehaviour {
 
 	public Camera MainCamera;
 	public GameObject Scope;
-	public 
+
 	float defsize;
 	float defsens;
 	public float camSize = 10;
 
 	// Use this for initialization
-	void Start () {
+	public void Start()
+	{
 		defsize = MainCamera.fieldOfView;
 	}
 	

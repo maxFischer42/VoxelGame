@@ -23,9 +23,9 @@ public class Health : NetworkBehaviour {
 		{
 			spawnPoints = FindObjectsOfType<NetworkStartPosition>();
 		}
-		if (!isLocalPlayer) {
-			gameObject.SetActive (false);
-		}
+	//	if (!isLocalPlayer) {
+	//		gameObject.SetActive (false);
+	//	}
 	}
 
 	public void TakeDamage(int amount)

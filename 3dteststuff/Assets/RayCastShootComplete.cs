@@ -17,7 +17,7 @@ public class RayCastShootComplete :NetworkBehaviour {
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
 
 
-	void Start () 
+	void Start()
 	{
 		// Get and store a reference to our LineRenderer component
 		laserLine = GetComponent<LineRenderer>();
