@@ -11,6 +11,9 @@ public class ShootableBox : NetworkBehaviour {
 	public bool barrel;
 	public bool player;
 
+	[SyncVar]
+	public bool hit;
+
 
 
 
@@ -29,8 +32,12 @@ public class ShootableBox : NetworkBehaviour {
 	}
 
 
-
-
+	public void Update()	
+	{
+		if (hit) {
+			RpcRespawn ();
+		}
+	}
 
 
 	[ClientRpc]
@@ -40,7 +47,7 @@ public class ShootableBox : NetworkBehaviour {
 		currentHealth -= damageAmount;
 
 		//Check if health has fallen below zero
-		if (currentHealth <= 0) 
+		if (currentHealth <= 0 || hit) 
 		{
 			if (barrel) {
 				Destroy (gameObject, 1f);
@@ -65,8 +72,8 @@ public class ShootableBox : NetworkBehaviour {
 	[ClientRpc]
 	void RpcRespawn()
 	{
-		if (isLocalPlayer)
-		{
+		//if (isLocalPlayer)
+	//	{
 			// Set the spawn point to origin as a default value
 			Vector3 spawnPoint = Vector3.zero;
 
@@ -78,6 +85,7 @@ public class ShootableBox : NetworkBehaviour {
 
 			// Set the player’s position to the chosen spawn point
 			transform.position = spawnPoint;
-		}
+			hit = false;
+	//	}
 	}
 }

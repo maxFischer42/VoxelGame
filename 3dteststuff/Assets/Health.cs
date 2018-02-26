@@ -30,9 +30,9 @@ public class Health : NetworkBehaviour {
 		
 	public void TakeDamage(int amount)
 	{
-		if (!isServer)
-			Debug.Log ("Isnt Server");
-			return;
+		//if (!isServer)
+	//		Debug.Log ("Isnt Server");
+	//		return;
 
 		currentHealth -= amount;
 		if (currentHealth <= 0)

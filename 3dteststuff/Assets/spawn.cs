@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Networking.Types;
+using UnityEngine.Networking.Match;
+using UnityEngine.Networking.PlayerConnection;
 using UnityEngine.Networking.NetworkSystem;
 using UnityStandardAssets.Characters.FirstPerson;
 using System;
@@ -23,25 +26,38 @@ public class spawn :NetworkBehaviour {
 
 	void Update()
 	{
-		//if (!isLocalPlayer)
-	//	{
-	//		return;
-	//	}
+		if (!isLocalPlayer) {
+			GetComponentInChildren<Camera> ().enabled = false;
+			return;
+		}
+		if (local) {
 
+			GetComponentInChildren<RayViewerComplete> ().enabled = true;
+			GetComponentInChildren<RayCastShootComplete> ().enabled = true;
+	GetComponentInChildren<Camera> ().enabled = true;
+			GetComponent<FirstPersonController> ().enabled = true;
+		GetComponent<CharacterController> ().enabled = true;
+			GetComponent<MouseLook> ().enabled = true;
 
+		}
 	}
+
+
+
+
+
+
+
 
 	public override void OnStartLocalPlayer()
 	{
+		
+		//gameObject.name = PlayerPrefs.GetString ("Name");
 		Debug.Log ("it worked?");
 		local = true;
-		gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
-		GetComponentInChildren<RayViewerComplete> ().enabled = true;
-		GetComponentInChildren<RayCastShootComplete> ().enabled = true;
-		GetComponentInChildren<Camera> ().enabled = true;
-		gameObject.GetComponent<FirstPersonController> ().enabled = true;
-		gameObject.GetComponent<CharacterController> ().enabled = true;
-		gameObject.GetComponent<MouseLook> ().enabled = true;
+		//GameObject.Find ("LoadCamera").SetActive (false);
+
+
 	}
 
 }

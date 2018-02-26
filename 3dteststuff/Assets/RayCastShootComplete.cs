@@ -71,9 +71,11 @@ public class RayCastShootComplete :NetworkBehaviour {
 			if (healthh != null) {
 				// Call the damage function of that script, passing in our gunDamage variable
 				healthh.RpcDamage (gunDamage);
+			//	healthh.hit = true;
 			} else if(playerHealth != null)
 			{
 				playerHealth.TakeDamage (gunDamage);
+
 			}
 
 				// Check if the object we hit has a rigidbody attached

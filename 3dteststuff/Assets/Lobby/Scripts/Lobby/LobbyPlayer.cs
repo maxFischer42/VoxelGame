@@ -288,6 +288,7 @@ namespace Prototype.NetworkLobby
         [Command]
         public void CmdNameChanged(string name)
         {
+			PlayerPrefs.SetString ("Name", name);
             playerName = name;
         }
 
