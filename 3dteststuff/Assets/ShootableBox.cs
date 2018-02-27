@@ -11,7 +11,7 @@ public class ShootableBox : NetworkBehaviour {
 	public bool barrel;
 	public bool player;
 
-	[SyncVar]
+	[SyncVar(hook = "RpcRespawn")]
 	public bool hit;
 
 
@@ -38,60 +38,57 @@ public class ShootableBox : NetworkBehaviour {
 			if (!isServer) {
 				return;
 			}
-			CmdRespawn ();
-		}
-	}
-
-
-	[ClientRpc]
-	public void RpcDamage(int damageAmount)
-	{
-		if (!isServer) {
-			return;
-		}
-		//subtract damage amount when Damage function is called
-		currentHealth -= damageAmount;
-
-		//Check if health has fallen below zero
-		if (currentHealth <= 0 || hit) 
-		{
-			if (barrel) {
-				Destroy (gameObject, 1f);
-				for (int i = 0; i < particles.Length; i++) {
-					particles [i].SetActive (true);
-					particles [i].GetComponent<ParticleSystem> ().Stop ();
-					particles [i].GetComponent<ParticleSystem> ().Play ();
-				}
-
-			} else if (player) {
-				CmdRespawn ();
-			}
-
-			else {
-				//if health has fallen below zero, deactivate it 
-				gameObject.SetActive (false);
-			}
+			RpcRespawn (true);
 		}
 	}
 
 
 	[Command]
-	void CmdRespawn()
+	public void CmdDamage(int damageAmount)
+	{
+		if (isClient) {
+		//subtract damage amount when Damage function is called
+		currentHealth -= damageAmount;
+
+		//Check if health has fallen below zero
+			if (currentHealth <= 0 || hit) {
+				if (barrel) {
+					Destroy (gameObject, 1f);
+					for (int i = 0; i < particles.Length; i++) {
+						particles [i].SetActive (true);
+						particles [i].GetComponent<ParticleSystem> ().Stop ();
+						particles [i].GetComponent<ParticleSystem> ().Play ();
+					}
+
+				} else if (player) {
+					RpcRespawn (true);
+				} else {
+					//if health has fallen below zero, deactivate it 
+					gameObject.SetActive (false);
+				}
+			}
+		}
+	}
+
+	[ClientRpc]
+	public void RpcRespawn(bool hasHit)
 	{
 		//if (isLocalPlayer)
 	//	{
+		if (hasHit) {
+
 			// Set the spawn point to origin as a default value
 			Vector3 spawnPoint = Vector3.zero;
 
 			// If there is a spawn point array and the array is not empty, pick one at random
-			if (spawnPoints != null && spawnPoints.Length > 0)
-			{
-				spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+			if (spawnPoints != null && spawnPoints.Length > 0) {
+				spawnPoint = spawnPoints [Random.Range (0, spawnPoints.Length)].transform.position;
 			}
 
 			// Set the player’s position to the chosen spawn point
 			transform.position = spawnPoint;
 			hit = false;
+		}
 	//	}
 	}
 }

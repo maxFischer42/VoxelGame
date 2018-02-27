@@ -66,18 +66,16 @@ public class RayCastShootComplete :NetworkBehaviour {
 
 				// Get a reference to a health script attached to the collider we hit
 				ShootableBox healthh = hit.collider.GetComponent<ShootableBox>();
-				Health playerHealth = hit.collider.GetComponent<Health> ();
 				// If there was a health script attached
 			if (healthh != null) {
 				// Call the damage function of that script, passing in our gunDamage variable
-
-				healthh.RpcDamage (gunDamage);
-			//	healthh.hit = true;
-			} else if(playerHealth != null)
-			{
-				playerHealth.TakeDamage (gunDamage);
-
+				if (isServer) {
+					healthh.RpcRespawn (true);
+				} else {
+					healthh.CmdDamage (gunDamage);
+				}
 			}
+
 
 				// Check if the object we hit has a rigidbody attached
 				if (hit.rigidbody != null)

@@ -25,17 +25,16 @@ public class fogPowerUp : MonoBehaviour {
 	
 
 	void BeginPowerUp(){
-		GUI.Label (new Rect (10, 10, 100, 20), "Anti-Fog");
 		poweredUp = true;
 		RenderSettings.fog = false;}
 	
 
 
-	void OnTriggerEnter(Collision Coll)
+	void OnTriggerEnter(Collider Coll)
 	{
 		Debug.Log ("Collision");
 		if (Coll.gameObject.tag == "Player") {
-			Coll.transform.parent.gameObject.GetComponent<fogPowerUp> ().BeginPowerUp ();
+			Coll.gameObject.GetComponent<fogPowerUp> ().BeginPowerUp ();
 			Destroy (gameObject);
 	}}
 	
