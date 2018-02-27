@@ -70,6 +70,7 @@ public class RayCastShootComplete :NetworkBehaviour {
 				// If there was a health script attached
 			if (healthh != null) {
 				// Call the damage function of that script, passing in our gunDamage variable
+
 				healthh.RpcDamage (gunDamage);
 			//	healthh.hit = true;
 			} else if(playerHealth != null)

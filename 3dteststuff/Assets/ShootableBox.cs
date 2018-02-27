@@ -35,7 +35,10 @@ public class ShootableBox : NetworkBehaviour {
 	public void Update()	
 	{
 		if (hit) {
-			RpcRespawn ();
+			if (!isServer) {
+				return;
+			}
+			CmdRespawn ();
 		}
 	}
 
@@ -43,6 +46,9 @@ public class ShootableBox : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcDamage(int damageAmount)
 	{
+		if (!isServer) {
+			return;
+		}
 		//subtract damage amount when Damage function is called
 		currentHealth -= damageAmount;
 
@@ -58,7 +64,7 @@ public class ShootableBox : NetworkBehaviour {
 				}
 
 			} else if (player) {
-				RpcRespawn ();
+				CmdRespawn ();
 			}
 
 			else {
@@ -69,8 +75,8 @@ public class ShootableBox : NetworkBehaviour {
 	}
 
 
-	[ClientRpc]
-	void RpcRespawn()
+	[Command]
+	void CmdRespawn()
 	{
 		//if (isLocalPlayer)
 	//	{
