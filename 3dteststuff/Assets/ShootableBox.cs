@@ -24,6 +24,7 @@ public class ShootableBox : NetworkBehaviour {
 
 	void Start ()
 	{
+		//GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
 		//RpcRespawn ();
 		if (isLocalPlayer)
 		{

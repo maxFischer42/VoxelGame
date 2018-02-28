@@ -34,9 +34,9 @@ public class spawn :NetworkBehaviour {
 
 			GetComponentInChildren<RayViewerComplete> ().enabled = true;
 			GetComponentInChildren<RayCastShootComplete> ().enabled = true;
-	GetComponentInChildren<Camera> ().enabled = true;
+			GetComponentInChildren<Camera> ().enabled = true;
 			GetComponent<FirstPersonController> ().enabled = true;
-		GetComponent<CharacterController> ().enabled = true;
+			GetComponent<CharacterController> ().enabled = true;
 			GetComponent<MouseLook> ().enabled = true;
 
 		}
