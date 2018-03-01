@@ -75,9 +75,8 @@ GameObject:
   - component: {fileID: 65488587401599588}
   - component: {fileID: 23810491284742592}
   - component: {fileID: 120482607670316926}
-  - component: {fileID: 114129372013396242}
-  - component: {fileID: 114644069309107552}
-  - component: {fileID: 114145512398806368}
+  - component: {fileID: 114680327413142058}
+  - component: {fileID: 114558144861002734}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -118,9 +117,9 @@ GameObject:
   - component: {fileID: 114368036194311388}
   - component: {fileID: 114333273245229920}
   - component: {fileID: 114147042293567930}
-  - component: {fileID: 114467439999375528}
   - component: {fileID: 114780896590982538}
   - component: {fileID: 136544930064048358}
+  - component: {fileID: 114539070680506876}
   m_Layer: 0
   m_Name: Character 2
   m_TagString: Player
@@ -298,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1500769252762944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6373613, y: -0.7395549, z: 3.2542348}
+  m_LocalPosition: {x: 320.71274, y: 546.4474, z: -855.2607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4058394298189338}
@@ -839,50 +838,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114129372013396242
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1398281063592306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 80
-    i1: 136
-    i2: 241
-    i3: 9
-    i4: 130
-    i5: 108
-    i6: 103
-    i7: 244
-    i8: 56
-    i9: 57
-    i10: 129
-    i11: 31
-    i12: 23
-    i13: 93
-    i14: 172
-    i15: 134
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
---- !u!114 &114145512398806368
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1398281063592306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee1d33311fb6e2c4c8221270bb35429b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponRange: 50
 --- !u!114 &114147042293567930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1060,22 +1015,6 @@ MonoBehaviour:
   m_FootstepSounds: []
   m_JumpSound: {fileID: 0}
   m_LandSound: {fileID: 0}
---- !u!114 &114467439999375528
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1500769252762944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d1930daf70911469c74ea0b3d88ac2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 1
-  particles: []
-  barrel: 0
-  player: 1
-  hit: 0
 --- !u!114 &114478307733486568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1119,7 +1058,30 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114644069309107552
+--- !u!114 &114539070680506876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500769252762944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a519bf4f74508c42a0fde90c4a1aae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114558144861002734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398281063592306}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1d33311fb6e2c4c8221270bb35429b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponRange: 50
+--- !u!114 &114680327413142058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1132,7 +1094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunDamage: 100
   fireRate: 0.25
-  weaponRange: 150
+  weaponRange: 300
   hitForce: 100
   gunEnd: {fileID: 4470091921950474}
 --- !u!114 &114777684707073200

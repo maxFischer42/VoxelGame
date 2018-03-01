@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DungeonMap.unity
     guid: 0c98d728434055b44af3a19c01a4e6de
+  - enabled: 1
+    path: Assets/LoadData.unity
+    guid: 0658caf7fd3d8d741bdeb5104ce6a870

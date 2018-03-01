@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class RayViewerComplete : NetworkBehaviour {
+public class RayViewerComplete : MonoBehaviour {
 
     public float weaponRange = 50f;                       // Distance in Unity units over which the Debug.DrawRay will be drawn
 

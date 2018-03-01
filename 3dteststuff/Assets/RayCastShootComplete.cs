@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Networking;
 
-public class RayCastShootComplete :NetworkBehaviour {
+public class RayCastShootComplete : MonoBehaviour {
 
 	public int gunDamage = 1;											// Set the number of hitpoints that this gun will take away from shot objects with a health script
 	public float fireRate = 0.25f;										// Number in seconds which controls how often the player can fire
@@ -33,12 +32,12 @@ public class RayCastShootComplete :NetworkBehaviour {
 	void Update()
 	{
 		if (Input.GetButtonDown ("Fire1") && Time.time > nextFire) {
-			CmdFire ();
+			Fire ();
 		}
 	}
 
 
-	void CmdFire () 
+	void Fire () 
 	{
 		
 		// Check if the player has pressed the fire button and if enough time has elapsed since they last fired
@@ -65,15 +64,11 @@ public class RayCastShootComplete :NetworkBehaviour {
 				laserLine.SetPosition (1, hit.point);
 
 				// Get a reference to a health script attached to the collider we hit
-				ShootableBox healthh = hit.collider.GetComponent<ShootableBox>();
+				CharacterController healthh = hit.collider.GetComponent<CharacterController>();
+
 				// If there was a health script attached
 			if (healthh != null) {
-				// Call the damage function of that script, passing in our gunDamage variable
-				if (isServer) {
-					healthh.RpcRespawn (true);
-				} else {
-					healthh.CmdDamage (gunDamage);
-				}
+				transform.parent.parent.parent.GetComponent<tellServer> ().CmdHitEnemy (hit.transform.gameObject);
 			}
 
 
