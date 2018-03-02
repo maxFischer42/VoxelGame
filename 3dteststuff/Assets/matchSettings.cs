@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class matchSettings : NetworkBehaviour {
 	//this script will load the match settings
@@ -42,7 +43,7 @@ public class matchSettings : NetworkBehaviour {
 			Save ();
 		}
 
-		if (SceneManager.GetSceneByName ("LoadData").isLoaded) {
+		if (SceneManager.GetSceneByName ("LoadData").isLoaded || Input.GetKey(KeyCode.Insert)) {
 			loadScene ();
 		}
 	}
@@ -58,8 +59,26 @@ public class matchSettings : NetworkBehaviour {
 	public void Save()
 	{
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.dataPath + "/Data.dat");
+		FileStream file = File.Create (Application.dataPath + "/matchData.dat");
 		Infoo inf = new Infoo ();
+		if (gameObject.GetComponent<Canvas>() != null) {
+			inf.scoreToWin = int.Parse(transform.GetComponentInChildren<InputField> ().text);
+			inf.levelToLoad = transform.GetComponentInChildren<Dropdown> ().captionText.text;
+		}
+		bf.Serialize (file, inf);
+		Debug.Log ("Saved");
+		file.Close ();
+	}
+		
+	public void HostSave()
+	{
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.dataPath + "/matchData.dat");
+		Infoo inf = new Infoo ();
+		if (gameObject.GetComponent<Canvas>() != null) {
+			inf.scoreToWin = int.Parse(transform.GetComponentInChildren<InputField> ().text);
+			inf.levelToLoad = transform.GetComponentInChildren<Dropdown> ().captionText.text;
+		}
 		bf.Serialize (file, inf);
 		Debug.Log ("Saved");
 		file.Close ();
