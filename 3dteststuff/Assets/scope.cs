@@ -19,7 +19,7 @@ public class scope : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButton (1)) {
+		if (Input.GetAxisRaw("Fire2") > 0) {
 			Scope.SetActive (true);
 			MainCamera.fieldOfView = camSize;
 		} else {
